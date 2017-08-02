@@ -1,18 +1,73 @@
 <ion-header>
-  <ion-navbar>
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
-    <ion-title>Home</ion-title>
+  <ion-navbar [color]="abcd2.headcolor">
+    <!--<button ion-button menuToggle>
+      <ion-icon name="menu" color="dark"></ion-icon>
+    </button>-->
+    <ion-title text-center>ABCD<sup>2</sup> Calculator</ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <h3>Ionic Menu Starter</h3>
-
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
-  </p>
-
-  <button ion-button secondary menuToggle>Toggle Menu</button>
+<ion-content>
+  <h5 text-center>Patient details</h5>
+  <ion-list no-lines>
+    <ion-item>
+      <ion-icon name="ios-calendar-outline" item-start color="danger"></ion-icon>
+      <ion-label> Age &#8805;60yrs?</ion-label>
+      <ion-toggle checked="false" color="danger" [(ngModel)]='abcd2.age' (ionChange)="reCalc()"></ion-toggle>
+    </ion-item>
+    <ion-item>
+      <ion-icon name="ios-medkit-outline" item-start color="danger"></ion-icon>
+      <ion-label> Blood pressure &#8805;140/90?</ion-label>
+      <ion-toggle checked="false" color="danger" [(ngModel)]='abcd2.pressure' (ionChange)="reCalc()"></ion-toggle>
+    </ion-item>
+    <ion-card>
+      <ion-item>
+      <ion-label>Clinical Features</ion-label>
+      <ion-range min="0" max="2" color="danger" snaps="true" [(ngModel)]='abcd2.clinical' (ionChange)="reCalc()">
+        <ion-icon range-left small name="ios-body-outline" color="danger"></ion-icon>
+        <ion-icon range-right name="ios-body-outline" color="danger"></ion-icon>
+      </ion-range> 
+    </ion-item>  
+      <ion-grid>
+        <ion-row text-center>
+          <ion-col col-4>None</ion-col>
+          <ion-col col-4>Speech disturbance</ion-col>
+          <ion-col col-4>Unilateral weakness</ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card>
+    <ion-card>
+    <ion-item>
+      <ion-label text-left>Duration of TIA</ion-label>
+      <ion-range min="0" max="2" color="danger" snaps="true" [(ngModel)]='abcd2.duration' (ionChange)="reCalc()">
+        <ion-icon range-left small name="ios-time-outline" color="danger"></ion-icon>
+        <ion-icon range-right name="ios-time-outline" color="danger"></ion-icon>
+      </ion-range>  
+    </ion-item>
+      <ion-grid>
+        <ion-row text-center>
+          <ion-col col-4>&gt; 10 mins</ion-col>
+          <ion-col col-4>10–59 mins</ion-col>
+          <ion-col col-4>&#8805; 60 mins </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card>
+    <ion-item>
+      <ion-icon name="ios-water-outline" item-start color="danger"></ion-icon>
+      <ion-label> Diabetes?</ion-label>
+      <ion-toggle checked="false" color="danger" [(ngModel)]='abcd2.diabetes' (ionChange)="reCalc()"></ion-toggle>
+    </ion-item>
+  </ion-list>  
+  <ion-fab bottom center>
+    <button ion-fab color="danger">{{abcd2.ABCDtotal}}</button>
+    <ion-fab-list side="left">
+      <button ion-fab (click)="popUpInfo()"><ion-icon name="ios-information-circle-outline" color="danger"></ion-icon></button>
+    </ion-fab-list>  
+    <ion-fab-list side="top">
+      <button ion-fab (click)="presentCalcModal()"><ion-icon name="ios-calculator-outline" color="danger"></ion-icon></button>
+    </ion-fab-list>
+    <ion-fab-list side="right">  
+      <button ion-fab (click)="reSet(this)"><ion-icon name="ios-refresh" color="danger"></ion-icon></button>
+    </ion-fab-list>  
+  </ion-fab>
 </ion-content>

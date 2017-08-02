@@ -1,0 +1,47 @@
+<ion-header>
+    <ion-navbar [color]="abcd2.headcolor">
+        <ion-title text-center>ACBD<sup>2</sup> Calculation</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+				<ion-grid>
+			        <ion-row text-center>
+			          <ion-col col-4>Age</ion-col>
+			          <ion-col col-4>{{a}} yrs</ion-col>
+			          <ion-col col-4>{{aa}}</ion-col>
+			        </ion-row>
+			        <ion-row text-center>
+			          <ion-col col-4>Blood Pressure &#8805;140/90</ion-col>
+			          <ion-col col-4>{{b}}</ion-col>
+			          <ion-col col-4>{{bb}}</ion-col>
+			        </ion-row>
+			        <ion-row text-center>
+			          <ion-col col-4>Clinical Features</ion-col>
+			          <ion-col col-4>{{c}}</ion-col>
+			          <ion-col col-4>{{cc}}</ion-col>
+			        </ion-row>
+			        <ion-row text-center>
+			          <ion-col col-4>Duration of TIA</ion-col>
+			          <ion-col col-4>{{d}} mins</ion-col>
+			          <ion-col col-4>{{dd}}</ion-col>
+			        </ion-row>
+			        <ion-row text-center>
+			          <ion-col col-4>Diabetes</ion-col>
+			          <ion-col col-4>{{e}}</ion-col>
+			          <ion-col col-4>{{ee}}</ion-col>
+			        </ion-row>
+		      	</ion-grid>
+		      	<ion-card padding>
+		      		<ion-card-header text-center>
+					    ABCD<sup>2</sup> Score
+					  </ion-card-header>
+		      		<h5 text-center>{{abcd2.ABCDtotal}}</h5>
+		      		<hr>
+		      		<h5 text-center>{{explain}}</h5>
+		      	</ion-card>
+	            <button ion-button color="danger" block (click)="dismiss()" icon-left padding>
+	            <ion-icon name="home"></ion-icon>
+	            	CLOSE
+	            </button>
+</ion-content>
