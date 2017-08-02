@@ -49,7 +49,7 @@ export class HomePage {
  	popUpInfo() {
     let alert = this.alertCtrl.create({
       title: '<h3 text-center>ABOUT</h3>',
-      subTitle: '<p>CDC ABCD<sup>2</sup> Calc Challenge entry.</p><p>A hack by Adam Morley.</p>',
+      subTitle: '<p>CDC ABCD<sup>2</sup> Calc Challenge entry.</p><p>A hack-up by Adam Morley.</p>',
       buttons: ['OK']
     });
     alert.present();
